@@ -17,8 +17,8 @@ class ModelsFactory extends Factory
     public function definition(): array
     {
         return [
-            'code' => $this->faker->uuid(),
-            'name' => $this->faker->name(15),
+            'code' => $this->faker->unique()->regexify('[A-Z0-9]{12}'),
+            'name' => $this->faker->words(1, true),
             'is_active' => true,
             'created_by' => 1,
             'updated_by' => 1,

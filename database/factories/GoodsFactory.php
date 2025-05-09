@@ -2,9 +2,6 @@
 
 namespace Database\Factories;
 
-use App\Models\Brand;
-use App\Models\Member;
-use App\Models\Models;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -20,10 +17,12 @@ class GoodsFactory extends Factory
     public function definition(): array
     {
         return [
-            'code' => $this->faker->uuid(),
-            'name' => $this->faker->name(20),
+            'model_id' => $this->faker->numberBetween(1, 10),
+            'brand_id' => $this->faker->numberBetween(1, 5),
+            'code' => $this->faker->unique()->regexify('[A-Z0-9]{12}'),
+            'name' => $this->faker->words(2, true),
             'description' => $this->faker->text(50),
-            'price' => $this->faker->numberBetween(10000, 100000),
+            'price' => $this->faker->numberBetween(10, 100) * 1000,
             'stock' => 999999,
             'thumbnail' => $this->faker->imageUrl(),
             'simg1' => '',

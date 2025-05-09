@@ -2,11 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Brand;
 use App\Models\Goods;
-use App\Models\Member;
-use App\Models\Models;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class GoodsSeeder extends Seeder
@@ -16,6 +12,6 @@ class GoodsSeeder extends Seeder
      */
     public function run(): void
     {
-
+        Goods::factory()->count(50)->create();
     }
 }
